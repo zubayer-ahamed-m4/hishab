@@ -28,7 +28,7 @@ public class TransactionController extends HishabController{
 
 	@PostMapping("/save")
 	public ResponseEntity<String> saveTransaction(Transaction transaction) {
-		
+		logger.info("Transaction {}", transaction);
 		return new ResponseEntity<>("Transaction successfull", HttpStatus.OK);
 	}
 }

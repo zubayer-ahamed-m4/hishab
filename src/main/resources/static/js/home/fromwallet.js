@@ -16,6 +16,7 @@ cl.hishab.wallet.resetModal = function(){
 	resetForm('wallet-form');
 	$('.wallet-save').html("Save");
 	$('.wallet-modal-title').html("Add Your Wallet");
+	$('#currentBalance').val("0");
 }
 
 $(document).ready(function() {
@@ -48,9 +49,9 @@ $(document).ready(function() {
 			$.post(submitUrl, formData, function(data, status){
 				if(status == 'success'){
 					showMessage('alert-success', data);
+					cl.hishab.wallet.resetModal();
 					$('#walletModal .close').click();
 					$('#transactionModal').css('display', 'block');
-					cl.hishab.wallet.resetModal();
 					cl.hishab.wallet.getAllWallets();
 				}
 			});
